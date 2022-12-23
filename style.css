@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,rgb(105, 204, 96),rgb(44, 84, 204));
+}
+.menu{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    -webkit-aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+}
+.toogle{
+    position: absolute;
+    width: 80px;
+    -webkit-aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.4);
+    ;
+
+
+}
+.menu.active .toogle{
+    transform: rotate(360deg);
+    transition: 0.5s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(0, 0, 0, 1),
+    0 0 0 6px rgb(255, 255, 255);
+
+}
+.menu ul{
+    width: 300px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.menu ul li{
+    position: absolute;
+    left: 0;
+    transform-origin: 150px;
+    transform: rotate(calc(360deg/8 * var(--i)));
+    cursor: pointer;
+    transition: 0.5s;
+    scale: 0;
+    transition-delay: calc(0.2s * var(--i));
+}
+.menu.active ul li{
+    scale: 1;
+}
+.menu ul li a{
+    position: relative;
+    transform: rotate(calc(360deg/-8 * var(--i)));
+    position: absolute;
+    width: 60px;
+    -webkit-aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 255, 255);
+    color: var(--clr);
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.5s;
+}
+.menu ul li a:hover{
+    scale: 1.1;
+}
